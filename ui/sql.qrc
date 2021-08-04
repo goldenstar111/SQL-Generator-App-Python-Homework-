@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="img">
+    <file>ER_table.png</file>
+    <file>example_table.png</file>
+  </qresource>
+</RCC>

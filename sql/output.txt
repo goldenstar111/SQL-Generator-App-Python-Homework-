@@ -1,0 +1,26 @@
+This is data2
+for example,I will use this
+look at picture ER.png
+Why did I use this.
+Because all f here is foreign keys in table.
+Others property is not represented because core algorithm dont contain property.
+Let's start
+Core Algorithm:
+Input: all foreign keys
+Output: Create Query
+step1:
+input data:
+[["F1", "S2", "A", "Z"], ["F2", "S2", "B", "Y"], ["F3", "S1", "A", "O"], ["F4", "S1", "A", "P"], ["F5", "S4", "A", "W"], ["F6", "S4", "B", "X"], ["F7", "S6", "B", "W"], ["F8", "S6", "A", "O"], ["F9", "S5", "A", "Z"], ["F10", "S5", "B", "O"], ["F11", "S5", "C", "X"]]
+Output data:
+all Group Value Correspondences
+[[["F9", "S5", "A", "Z"],["F2", "S2", "B", "Y"],["F10", "S5", "B", "O"],["F4", "S1", "A", "P"],["F5", "S4", "A", "W"],f11],[["F1", "S2", "A", "Z"],["F2", "S2", "B", "Y"],["F3", "S1", "A", "O"],["F4", "S1", "A", "P"],["F7", "S6", "B", "W"],f6],[["F1", "S2", "A", "Z"],["F2", "S2", "B", "Y"],["F8", "S6", "A", "O"],["F4", "S1", "A", "P"],["F7", "S6", "B", "W"], ["F6", "S4", "B", "X"]],["F1", "S2", "A", "Z"],f2,["F3", "S1", "A", "O"],["F4", "S1", "A", "P"],["F5", "S4", "A", "W"], ["F6", "S4", "B", "X"],["F7", "S6", "B", "W"],["F8", "S6", "A", "O"],["F9", "S5", "A", "Z"],["F10", "S5", "B", "O"],["F11", "S5", "C", "X"]]
+step2:
+[[["F9", "S5", "A", "Z"],["F2", "S2", "B", "Y"],["F10", "S5", "B", "O"],["F4", "S1", "A", "P"],["F5", "S4", "A", "W"],f11],[["F1", "S2", "A", "Z"],f2,["F3", "S1", "A", "O"],["F4", "S1", "A", "P"],["F7", "S6", "B", "W"], ["F6", "S4", "B", "X"]],[["F1", "S2", "A", "Z"],f2,["F8", "S6", "A", "O"],["F4", "S1", "A", "P"],["F7", "S6", "B", "W"], ["F6", "S4", "B", "X"]]]
+step3:
+[[["F9", "S5", "A", "Z"],["F2", "S2", "B", "Y"],["F10", "S5", "B", "O"],f4,["F5", "S4", "A", "W"],f11],[["F1", "S2", "A", "Z"],["F2", "S2", "B", "Y"],["F3", "S1", "A", "O"],["F4", "S1", "A", "P"],["F7", "S6", "B", "W"], ["F6", "S4", "B", "X"]],[["F1", "S2", "A", "Z"],["F2", "S2", "B", "Y"],["F8", "S6", "A", "O"],["F4", "S1", "A", "P"],["F7", "S6", "B", "W"], ["F6", "S4", "B", "X"]]]
+step4:
+CREATE VIEW T(Z,Y,O,P,W,X) AS SELECT F9(S2.A), F2(S2.B), F10(S5.B), F4(S1.A), F5(S4.A), F11(S5.C) FROM S1, S2, S4, S5 WHERE S2.FK = S1.K AND S5.FK = S1.K AND S1.K = S4.FK UNION SELECT F1(S2.A),NULL,F3(S1.A),NULL,F7(S6.B),F6(S4.B) FROM S1, S2, S4, S6 WHERE S1.K = S2.FK AND S1.K = S4.FK AND S1.K = S6.FK UNION SELECT NULL, NULL, F8(S5.C), NULL, NULL, NULL FROM S5
+
+
+Thanks for your reading
+Dear Ruqey
